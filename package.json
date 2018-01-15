@@ -4,11 +4,17 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "client": "node scripts/start-client.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "installDeps": "yarn && cd client && yarn"
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
+  },
   "dependencies": {
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
