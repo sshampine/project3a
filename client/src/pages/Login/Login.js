@@ -1,90 +1,69 @@
 import React, { Component } from "react";
-import DeleteBtn from "../../components/DeleteBtn";
-import Jumbotron from "../../components/Jumbotron";
 import { Link } from "react-router-dom";
+import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+import Article from "../../components/Article/Article";
+import API from "../../utils/newsAPI";
+import "./Login.css";
 
 class Login extends Component {
   state = {
-    books: [],
-    title: "",
-    author: "",
-    synopsis: ""
+    articles: [],
   };
 
-  componentDidMount() {
-  }
+ // When this component mounts, search for the movie "The Matrix"
+ componentDidMount() {
+  this.newsArticles();
+}
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-  };
+newsArticles = query => {
+  API.news()
+    .then(res => {
+     console.log(res.data.articles, "res did this work");
+     this.setState({ articles: res.data.articles })
+    })
+    .catch(err => console.log(err));
+};
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>What Books Should I Read?</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.title}
-                onChange={this.handleInputChange}
-                name="title"
-                placeholder="Title (required)"
+      <Container fluid >
+        <Jumbotron> <h1 className="text-center"> Hero Space </h1></Jumbotron>
+        <Container>
+          <Row>
+            <br/>
+            <br/>
+            <br/>
+            <hr/>
+            <h1 className="text-center">Crypto API Space</h1>
+            <hr/>
+            <br/>
+            <br/>
+            <br/>
+          </Row>
+        </Container>
+        <Container>
+          <Row>
+            <br/>
+            <br/>
+            <br/>
+            <hr />
+            <h1 className="text-center">Latest Cryptocurrency News Articles</h1>
+            <hr />
+            {this.state.articles.map((article) => {
+              return (
+              <Article 
+                src={article.urlToImage}
+                title={article.title}
+                url={article.url}
+                description={article.description}  
               />
-              <Input
-                value={this.state.author}
-                onChange={this.handleInputChange}
-                name="author"
-                placeholder="Author (required)"
-              />
-              <TextArea
-                value={this.state.synopsis}
-                onChange={this.handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
-              />
-              <FormBtn
-                disabled={!(this.state.author && this.state.title)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit Book
-              </FormBtn>
-            </form>
-          </Col>
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Books On My List</h1>
-            </Jumbotron>
-            {this.state.books.length ? (
-              <List>
-                {this.state.books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
-                      <strong>
-                        {book.title} by {book.author}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-        </Row>
+              )
+            })}
+            <br/>
+            <br/>
+          </Row>
+        </Container>
       </Container>
     );
   }
