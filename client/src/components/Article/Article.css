@@ -1,0 +1,11 @@
+.newsImages {
+    width: 100%;
+    max-height: 300px;
+}
+
+.divBox {
+    margin: 15px auto;
+    padding: 15px 25px;
+    height: 470px;
+    
+}
