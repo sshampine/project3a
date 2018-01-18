@@ -26,6 +26,8 @@ app.use(flash());
 //app.use("/", routes)
 //app.use("/users", routes)
 
+require("./config/passport")(passport);
+
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
