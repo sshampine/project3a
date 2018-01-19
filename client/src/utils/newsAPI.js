@@ -1,0 +1,9 @@
+import axios from "axios";
+var url = 'https://newsapi.org/v2/top-headlines?q=cryptocurrency&' +
+          'apiKey=b20d4f18b29a4098b58c9c3a9a21cbfd';
+
+export default {
+  news: function() {
+    return axios.get(url);
+  }
+};

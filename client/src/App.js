@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./pages/Login";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
+import Dashboard from "./pages/Dashboard";
+import Nav from "./components/Nav/Nav";
+import Footer from "./components/Footer/Footer"
 
 const App = () =>
   <Router>
@@ -10,6 +11,7 @@ const App = () =>
       <Nav />
       <Switch>
         <Route exact path="/" component={Login} />
+        <Route exact path="/dashboard" component={Dashboard} />
       </Switch>
       <Footer />
     </div>
