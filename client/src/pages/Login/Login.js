@@ -3,17 +3,21 @@ import { Link } from "react-router-dom";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import Article from "../../components/Article/Article";
+import { Table } from "../../components/Table";
 import API from "../../utils/newsAPI";
+import cryptoAPI from "../../utils/binanceAPI";
 import "./Login.css";
 
 class Login extends Component {
   state = {
     articles: [],
+    coins: [],
   };
 
- // When this component mounts, search for the movie "The Matrix"
+
  componentDidMount() {
   this.newsArticles();
+  this.cryptoPairs();
 }
 
 newsArticles = query => {
@@ -21,6 +25,15 @@ newsArticles = query => {
     .then(res => {
      console.log(res.data.articles, "res did this work");
      this.setState({ articles: res.data.articles })
+    })
+    .catch(err => console.log(err));
+};
+
+cryptoPairs = query => {
+  cryptoAPI.allPairs()
+    .then(res => {
+     console.log(res.data, "res did this work");
+     this.setState({ coins: res.data })
     })
     .catch(err => console.log(err));
 };
@@ -35,7 +48,9 @@ newsArticles = query => {
             <br/>
             <br/>
             <hr/>
-            <h1 className="text-center">Crypto API Space</h1>
+            <Table
+              cryptoData= {this.state.coins}
+            />
             <hr/>
             <br/>
             <br/>
@@ -53,6 +68,7 @@ newsArticles = query => {
             {this.state.articles.map((article) => {
               return (
               <Article 
+                key={article.url}
                 src={article.urlToImage}
                 title={article.title}
                 url={article.url}
