@@ -1,5 +1,5 @@
-require mongoose = require("mongoose");
-require bcrypt = require("bcrypt-nodejs");
+var mongoose = require("mongoose");
+var bcrypt = require("bcrypt-nodejs");
 
 var userSchema = mongoose.Schema({
 	local: {
