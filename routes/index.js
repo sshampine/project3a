@@ -7,9 +7,7 @@ const apiRoutes = require("./api");
 // Require all models
 var db = require("../models");
 
-router.use(function(req, res) {
-	res.sendFile(path.join(__dirname, "../client/public/index.html"))
-})
+
 
 router.get("/", function(req, res, next) {
 	res.render("index")
@@ -47,13 +45,14 @@ router.post("/login", passport.authenticate("local-login", {
 // API Routes
 router.use("/api", apiRoutes);
 
-
-
-module.exports = router; 
-
+router.use(function(req, res) {
+	res.sendFile(path.join(__dirname, "../client/build/index.html"))
+})
 
 function isLoggedIn(req, res, next) {
 	if (req.isAuthenticated())
 		return next();
 	res.redirect("/");
 }
+
+module.exports = router; 
