@@ -16,15 +16,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Serve up static assets
 app.use(express.static("client/build"));
-app.use(routes);
+
 //setup passport
 app.use(session({ secret: "shhsecret" }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
-app.use("/", routes)
-app.use("/users", routes)
+app.use(routes);
+// app.use("/", routes)
+// app.use("/users", routes)
 
 require("./config/passport")(passport);
 
