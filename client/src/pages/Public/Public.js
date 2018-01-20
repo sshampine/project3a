@@ -4,6 +4,7 @@ import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import Article from "../../components/Article/Article";
 import { Table } from "../../components/Table";
+import { ArticleTable } from "../../components/NewsArticle";
 import API from "../../utils/newsAPI";
 import cryptoAPI from "../../utils/binanceAPI";
 import "./Public.css";
@@ -65,17 +66,9 @@ cryptoPairs = query => {
             <hr />
             <h1 className="text-center">Latest Cryptocurrency News Articles</h1>
             <hr />
-            {this.state.articles.map((article) => {
-              return (
-              <Article 
-                key={article.url}
-                src={article.urlToImage}
-                title={article.title}
-                url={article.url}
-                description={article.description}  
-              />
-              )
-            })}
+            <ArticleTable 
+             articles= {this.state.articles}
+            />
             <br/>
             <br/>
           </Row>
