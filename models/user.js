@@ -1,19 +1,28 @@
 var mongoose = require("mongoose");
 var bcrypt = require("bcrypt-nodejs");
 
-var userSchema = mongoose.Schema({
+// Save a reference to the Schema constructor
+var Schema = mongoose.Schema;
+
+// Using the Schema constructor, create a new UserSchema object
+// This is similar to a Sequelize model
+var UserSchema = mongoose.Schema({
 	local: {
 		email: String,
 		password: String,
 	},
 });
 
-userSchema.methods.generateHash = function(password) {
+UserSchema.methods.generateHash = function(password) {
 	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-userSchema.methods.validatePassword = function(password) {
+UserSchema.methods.validatePassword = function(password) {
 	return bcrypt.compareSync(password, this.local.password);
 };
 
-module.exports = mongoose.model("User", userSchema);
+// This creates our model from the above schema, using mongoose's model method
+var User = mongoose.model("User", UserSchema);
+
+// Export the User model
+module.exports = User;

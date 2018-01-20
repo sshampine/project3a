@@ -2,13 +2,13 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const routes = require("./routes/index")
+const routes = require("./routes")
 const app = express();
 const PORT = process.env.PORT || 3003;
-const https = require('https');
+
 
 // Require all models
-var db = require("./server/models");
+var db = require("./models");
 
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
