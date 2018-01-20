@@ -5,7 +5,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import Article from "../../components/Article/Article";
 import API from "../../utils/newsAPI";
 import cryptoAPI from "../../utils/binanceAPI";
-import { Table } from "../../components/Table";
+import { Table, ArticleTable } from "../../components/Table";
 
 
 class Dashboard extends Component {
@@ -63,10 +63,10 @@ cryptoPairs = query => {
             <br/>
             <hr />
             <h1 className="text-center">Latest Cryptocurrency News Articles</h1>
-            <hr />
             {this.state.articles.map((article) => {
               return (
               <Article 
+                key={article.url}
                 src={article.urlToImage}
                 title={article.title}
                 url={article.url}
@@ -74,6 +74,10 @@ cryptoPairs = query => {
               />
               )
             })}
+            <ArticleTable 
+             
+            />
+            <hr />
             <br/>
             <br/>
           </Row>
