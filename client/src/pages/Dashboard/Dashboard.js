@@ -47,9 +47,9 @@ cryptoPairs = query => {
             <br/>
             <br/>
             <hr/>
-            <Table
-              cryptoData= {this.state.coins}
-            />
+              <Table
+                cryptoData= {this.state.coins}
+              />
             <hr/>
             <br/>
             <br/>

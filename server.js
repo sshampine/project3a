@@ -23,8 +23,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-//app.use("/", routes)
-//app.use("/users", routes)
+app.use("/", routes)
+app.use("/users", routes)
 
 require("./config/passport")(passport);
 
@@ -37,9 +37,6 @@ mongoose.connect(
     useMongoClient: true
   }
 );
-
-
-
 
 // Start the API server
 app.listen(PORT, function() {
