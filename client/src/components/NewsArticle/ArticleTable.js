@@ -34,7 +34,7 @@ export class ArticleTable extends React.Component {
             })}
           </Tab>
           <Tab eventKey={ 2 } title='Portfolio'>
-          {this.props.articles.map((article) => {
+          {this.props.favoriteArticles.map((article) => {
               return (
               <Article 
                 key={article.url}

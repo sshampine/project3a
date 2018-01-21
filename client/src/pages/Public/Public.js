@@ -12,12 +12,14 @@ import "./Public.css";
 class Public extends Component {
   state = {
     articles: [],
+    favoriteArticles: [],
     coins: [],
   };
 
 
  componentDidMount() {
   this.newsArticles();
+  this.favoriteNewsArticles();
   this.cryptoPairs();
 }
 
@@ -30,10 +32,18 @@ newsArticles = query => {
     .catch(err => console.log(err));
 };
 
+favoriteNewsArticles = query => {
+  API.news2()
+    .then(res => {
+     console.log(res.data.articles, "favoriteNewsArticles did this work");
+     this.setState({ favoriteArticles: res.data.articles })
+    })
+    .catch(err => console.log(err));
+};
 cryptoPairs = query => {
   cryptoAPI.allPairs()
     .then(res => {
-     console.log(res.data, "res did this work");
+     console.log(res.data, "cryptoData did this work");
      this.setState({ coins: res.data })
     })
     .catch(err => console.log(err));
@@ -68,6 +78,7 @@ cryptoPairs = query => {
             <hr />
             <ArticleTable 
              articles= {this.state.articles}
+             favoriteArticles= {this.state.favoriteArticles}
             />
             <br/>
             <br/>
