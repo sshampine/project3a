@@ -21,7 +21,7 @@ export class ArticleTable extends React.Component {
     return (
         <Tabs activeKey={ this.state.key } onSelect={ this.handleTabChange } animation>
           <Tab eventKey={ 1 } title='Trending'>
-          {this.props.articles.map((article) => {
+            {this.props.articles.map((article) => {
               return (
               <Article 
                 key={article.url}
@@ -33,8 +33,8 @@ export class ArticleTable extends React.Component {
               )
             })}
           </Tab>
-          <Tab eventKey={ 2 } title='Portfolio'>
-          {this.props.favoriteArticles.map((article) => {
+          <Tab eventKey={ 2 } title='Favorite Outlets'>
+            {this.props.favoriteArticles.map((article) => {
               return (
               <Article 
                 key={article.url}
@@ -46,8 +46,8 @@ export class ArticleTable extends React.Component {
               )
             })}
           </Tab>
-          <Tab eventKey={ 3 } title='Favorites'>
-          {this.props.articles.map((article) => {
+          <Tab eventKey={ 3 } title='News Topics'>
+            {this.props.newsTopics.map((article) => {
               return (
               <Article 
                 key={article.url}
