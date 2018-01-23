@@ -14,7 +14,7 @@ class Public extends Component {
     articles: [],
     favoriteArticles: [],
     newsTopics: [],
-    coins: [],
+    coins: []
   };
 
 
@@ -60,11 +60,50 @@ cryptoPairs = query => {
     })
     .catch(err => console.log(err));
 };
-
   render() {
+    
     return (
+    
       <Container fluid >
-        <Jumbotron> <h1 className="text-center"> Hero Space </h1></Jumbotron>
+        <Jumbotron className="heroHome" > 
+          <h1 className="text-center" data-aos="fade-down"> Track Your Crypto</h1>
+          <p className="text-center" data-aos="fade-down"> Stay up to date with the latest news, prices, and all the drama.</p>
+          <div className="heroIcon" data-aos="zoom-out-up">
+            <img className="heroArrow center-block" src="https://cdn1.iconfinder.com/data/icons/utility-icons/50/Down-512.png" alt="arrow down" />
+          </div>
+        </Jumbotron>
+        <Container>
+          <Row>
+            <Col size="md-2">
+              <p className="text-right"><i class="fas fa-chart-line"></i></p>
+            </Col>
+            <Col size="md-6">
+              <h2>Track Real Time Rates</h2>
+              <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </Col>
+            <Col size="md-4"></Col>
+          </Row>
+          <Row>
+            <Col size="md-2">
+              <p className="text-right"><i class="far fa-newspaper"></i></p>
+            </Col>
+            <Col size="md-6">
+              <h2>Follow the Latest News</h2>
+              <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </Col>
+            <Col size="md-4"></Col>
+          </Row>
+          <Row>
+            <Col size="md-2">
+              <p className="text-right"><i class="fas fa-universal-access"></i></p>
+            </Col>
+            <Col size="md-6">
+              <h2>Customize Your News Feed</h2>
+              <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </Col>
+            <Col size="md-4"></Col>
+          </Row>
+        </Container>
         <Container>
           <Row>
             <br/>

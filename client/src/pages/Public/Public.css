@@ -1,4 +1,38 @@
-.container-fluid {
-    padding: 0px;
+.jumbotron{
+    background-image: url("https://wallpaperscraft.com/image/background_light_dark_surface_47324_2560x1440.jpg");
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;  
+    min-height: 450px;
+    border-radius: 0px !important;
+    
+}
 
+.jumbotron h1{
+    color: white;
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+.jumbotron p{
+    color: white;
+}
+
+.heroArrow {
+    position: relative;
+    height: 59px;
+    width: 59px;
+}
+
+.heroIcon {
+    margin-top: 30px;
+    padding-top: 40px;
+    filter: invert();
+}
+
+/* Font Awesome */
+.svg-inline--fa {
+    height: 1.6em;
+    font-size: 70px;
+    color: #0E4D6C;
+    ;
 }
