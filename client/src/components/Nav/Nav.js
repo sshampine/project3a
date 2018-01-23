@@ -1,8 +1,9 @@
 import React from "react";
 
-const Nav = () =>
-<nav className="navbar navbar-top navbar-inverse">
-    <div className="container-fluid">
+const Nav = () => 
+
+<nav className="navbar navbar-top navbar-default">
+    <div className="container">
       <div className="navbar-header">
         <button type="button" className="collapsed navbar-toggle">
           <span className="sr-only">Toggle navigation</span>
@@ -10,7 +11,7 @@ const Nav = () =>
           <span className="icon-bar" />
         </button>
         <a href="/" className="navbar-brand">
-          Our Logo
+          urBIT
         </a>
       </div>
       <ul class="nav navbar-nav navbar-right">
@@ -19,6 +20,7 @@ const Nav = () =>
       </ul>
     </div>
   </nav>
+
 
 export default Nav;
 
