@@ -8,10 +8,6 @@ import { BrowserRouter as Router,
  Redirect,
  withRouter } from "react-router-dom";
 
-//import Login from "./pages/Login";
-//import Dashboard from "./pages/Dashboard";
-//import Nav from "./components/Nav/Nav";
-//import Footer from "./components/Footer/Footer"
 //new pages
 import HomePage from './components/HomePage.jsx';
 import LoginPage from './containers/LoginPage.jsx';
@@ -20,18 +16,6 @@ import SignUpPage from './containers/SignUpPage.jsx';
 import DashboardPage from './containers/DashboardPage.jsx';
 //import Dashboard from "./pages/Dashboard/Dashboard.js";
 import Auth from './modules/Auth';
-
-// const App = () =>
-//   <Router>
-//     <div>
-//       <Nav />
-//       <Switch>
-//         <Route exact path="/" component={Login} />
-//         <Route exact path="/dashboard" component={Dashboard} />
-//       </Switch>
-//       <Footer />
-//     </div>
-//   </Router>;
 
 // export default App;
 injectTapEventPlugin();

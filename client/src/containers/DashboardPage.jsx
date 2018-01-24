@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Auth from '../modules/Auth';
 import Dashboard from '../components/Dashboard.jsx';
+import API from "../utils/newsAPI";
+import cryptoAPI from "../utils/binanceAPI";
 
 
-class DashboardPage extends React.Component {
+class DashboardPage extends Component {
 
   /**
    * Class constructor.
@@ -13,7 +15,9 @@ class DashboardPage extends React.Component {
 
     this.state = {
       secretData: '',
-      user: {}
+      user: {},
+      articles: [],
+      coins: []
     };
   }
 
@@ -21,6 +25,8 @@ class DashboardPage extends React.Component {
    * This method will be executed after initial rendering.
    */
   componentDidMount() {
+    this.newsArticles();
+    this.cryptoPairs();
     const xhr = new XMLHttpRequest();
     xhr.open('get', '/api/dashboard');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -36,13 +42,35 @@ class DashboardPage extends React.Component {
       }
     });
     xhr.send();
-  }
+  };
+
+  newsArticles(query) {
+    return(
+      API.news()
+        .then(res => {
+         console.log(res.data.articles, "res did this work");
+         this.setState({ articles: res.data.articles })
+        })
+        .catch(err => console.log(err))
+    );
+  };
+
+  cryptoPairs(query) {
+    return(
+      cryptoAPI.allPairs()
+        .then(res => {
+         console.log(res.data, "res did this work");
+         this.setState({ coins: res.data })
+        })
+        .catch(err => console.log(err))
+      );
+  };
 
   /**
    * Render the component.
    */
   render() {
-    return (<Dashboard secretData={this.state.secretData} user={this.state.user} />);
+    return (<Dashboard secretData={this.state.secretData} user={this.state.user} coins={this.state.coins} articles={this.state.articles} />);
   }
 
 }

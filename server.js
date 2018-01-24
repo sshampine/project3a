@@ -36,7 +36,7 @@ app.set("port", (process.env.PORT || 3000));
 
 //start server
 app.listen(app.get("port"), () => {
-	console.log(`Server is running on port ${app.get("port")}`)
+	console.log(`Server is run on port ${app.get("port")}`)
 });
 
 // const cookieParser = require("cookie-parser");
