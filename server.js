@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const config = require("./config");
 const cors = require('cors')
+const path = require("path");
+const router = express.Router();
 
 
 //connect to the database and load models
@@ -36,6 +38,9 @@ const authRoutes = require("./server/routes/auth");
 const apiRoutes = require("./server/routes/api")
 app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
+router.use(function(req, res) {
+	res.sendFile(path.join(__dirname, "../client/build/index.html"))
+})
 
 //set port, hosting services
 app.set("port", (process.env.PORT || 3001));
