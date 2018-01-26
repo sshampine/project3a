@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Row, Container } from "../../components/Grid";
 import { Table } from "../../components/Table";
 import { ArticleTable } from "../../components/NewsArticle";
+//import LeftNav from "../../components/LeftNav";
 
 const Dashboard = props => (
   <Container fluid >

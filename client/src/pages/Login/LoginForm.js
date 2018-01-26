@@ -35,6 +35,7 @@ const LoginForm = ({
                 value={user.password}
                 onChange={onChange}
                 name="password"
+                type="password"
                 placeholder="Password"
               />
             </div>

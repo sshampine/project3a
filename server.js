@@ -3,14 +3,18 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const config = require("./config");
 const cors = require('cors')
+const path = require("path");
+const router = express.Router();
 
 //connect to the database and load models
-require("./server/models").connect(config.dbUri);
+require("./server/models").connect(process.env.MONGODB_URI || config.dbUri);
 
 const app = express();
 app.use(cors());
+
 // Serve up static assets
 app.use(express.static("client/build"));
+
 
 //tell the app to parse HTTP body messages
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,9 +36,12 @@ const authRoutes = require("./server/routes/auth");
 const apiRoutes = require("./server/routes/api")
 app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
+router.use(function(req, res) {
+	res.sendFile(path.join(__dirname, "../client/build/index.html"))
+})
 
 //set port, hosting services
-app.set("port", (process.env.PORT || 3000));
+app.set("port", (process.env.PORT || 3001));
 
 //start server
 app.listen(app.get("port"), () => {
