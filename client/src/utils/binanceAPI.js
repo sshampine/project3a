@@ -2,7 +2,14 @@ import axios from "axios";
 
 export default {
   allPairs: function() {
-    return axios.get("http://localhost:3000/api/pairs");
+    return axios({
+    	method: 'get',
+    	url: 'http://localhost:3000/api/pairs',
+    	auth: {
+		  username: '',
+		  password: ''
+		}
+	})
   },
 
   favoritePairs: function() {

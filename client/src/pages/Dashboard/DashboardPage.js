@@ -27,25 +27,27 @@ class DashboardPage extends Component {
    * This method will be executed after initial rendering.
    */
   componentDidMount() {
-    this.newsArticles();
-    this.favoriteNewsArticles();
-    this.newsTopics();
-    this.cryptoPairs();
+    // this.newsArticles();
+    // this.favoriteNewsArticles();
+    // this.newsTopics();
+    
     const xhr = new XMLHttpRequest();
     xhr.open('get', 'http://localhost:3000/api/dashboard');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     // set the authorization HTTP header
-    xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+    xhr.setRequestHeader('Authorization', `Bearer ${Auth.getToken()}`);
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
         this.setState({
           secretData: xhr.response.message,
-          user: xhr.response.user
+          user: xhr.response.user,
         });
       }
     });
     xhr.send();
+
+    this.cryptoPairs();
   };
 
   newsArticles = query => {
@@ -75,27 +77,38 @@ class DashboardPage extends Component {
       .catch(err => console.log(err));
   };
 
-  cryptoPairs = query => {
-      cryptoAPI.allPairs()
-        .then(res => {
-         console.log(res.data, "res did this work");
-         this.setState({ coins: res.data })
-        })
-        .catch(err => console.log(err))
+  cryptoPairs = () => {
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('get', 'http://localhost:3000/api/pairs');
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    // set the authorization HTTP header
+    xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+    xhr.responseType = 'json';
+    xhr.addEventListener('load', () => {
+      console.log(xhr.response)
+      if (xhr.status === 200) {
+        this.setState({
+          coins: xhr.response.pairs,
+        });
+      }
+    });
+    xhr.send();
   };
 
   /**
    * Render the component.
    */
   render() {
-    return (<Dashboard 
-              secretData={this.state.secretData} 
-              user={this.state.user} 
-              coins={this.state.coins} 
-              articles={this.state.articles} 
-              favoriteArticles={this.state.favoriteArticles} 
-              newsTopics={this.state.newsTopics} 
-            />
+    return (
+      <Dashboard 
+        secretData={this.state.secretData} 
+        user={this.state.user} 
+        coins={this.state.coins} 
+        articles={this.state.articles} 
+        favoriteArticles={this.state.favoriteArticles} 
+        newsTopics={this.state.newsTopics} 
+      />
     );
   }
 
