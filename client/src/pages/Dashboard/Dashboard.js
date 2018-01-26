@@ -44,7 +44,7 @@ const Dashboard = props => (
 );
 
 Dashboard.propTypes = {
-  secretData: PropTypes.string.isRequired
+  secretData: PropTypes.string.isRequired,
 };
 
 export default Dashboard;

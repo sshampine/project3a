@@ -4,17 +4,13 @@ const passport = require("passport");
 const config = require("./config");
 const cors = require('cors')
 
-
 //connect to the database and load models
 require("./server/models").connect(config.dbUri);
 
 const app = express();
 app.use(cors());
-//tell the app to look for static files in these directories
-app.use(express.static("./server/static"));
-app.use(express.static("./client/dist"));
-
-
+// Serve up static assets
+app.use(express.static("client/build"));
 
 //tell the app to parse HTTP body messages
 app.use(bodyParser.urlencoded({ extended: false }));

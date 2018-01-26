@@ -1,12 +1,16 @@
 const express = require('express');
-
 const router = new express.Router();
+const Pair = require('mongoose').model('Pair');
+
+
+
 
 router.get('/dashboard', (req, res) => {
-  res.status(200).json({
-    message: "You're authorized to see thhhh secret message.",
-    // user values passed through from auth middleware
-    user: req.user
+
+    res.status(200).json({
+	    message: "You're authorized to see thhhh secret message.",
+	    // user values passed through from auth middleware
+	    user: req.user,
   });
 });
 
@@ -52,17 +56,22 @@ router.get("/scrapeAllCryptoPairs", function(req, res) {
 });
 
 // Route for getting all Pairs from the db
-router.get("/pairs", function(req, res) {
-  // Grab every document in the Pairs collection
-  db.Pair
+router.get("/pairs", (req, res) => {
+
+  	// Grab every document in the Pairs collection
+  	Pair
     .find({})
     .then(function(dbPair) {
       // If we were able to successfully find Pairs, send them back to the client
-      res.json(dbPair);
+      res.json({
+      	pairs: dbPair
+      });
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
-      res.json(err);
+      res.json({
+      	error: err
+      })
     });
 });
 
