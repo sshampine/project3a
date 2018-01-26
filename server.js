@@ -14,7 +14,7 @@ const app = express();
 app.use(cors());
 //tell the app to look for static files in these directories
 app.use(express.static("./server/static"));
-app.use(express.static("./client/dist"));
+app.use(express.static("./client/build"));
 
 
 
