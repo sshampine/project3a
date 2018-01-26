@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-// import injectTapEventPlugin from 'react-tap-event-plugin';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import LoginPage from "./pages/Login";
 import DashboardPage from "./pages/Dashboard";
 import Public from "./pages/Public";
 import SignUpPage from "./pages/SignUp";
 import Nav from "./components/Nav/Nav";
+import LoggedInNav from "./components/LoggedInNav";
 import Footer from "./components/Footer/Footer";
 import Auth from './modules/Auth.js';
 import LogoutFunction from './modules/LogoutFunction.js';
 
-// injectTapEventPlugin();
+injectTapEventPlugin();
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => (
@@ -68,19 +69,11 @@ class App extends Component {
       <Router>
         <div>
               {this.state.authenticated ? (
-                // <div className="top-bar-right">
-                //   <Link to="/dashboard">Dashboard</Link>
-                //   <Link to="/logout">Log out</Link>
-                // </div>
-                <Nav />
+                <LoggedInNav />
               ) : (
-                // <div className="top-bar-right">
-                //   <Link to="/login">Log in</Link>
-                //   <Link to="/signup">Sign up</Link>
-                // </div>
                 <Nav />
               )}
-            <PropsRoute path="/public" component={Public} />
+            <PropsRoute exact path="/" component={Public} />
             <PrivateRoute path="/dashboard" component={DashboardPage} />
             <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
             <LoggedOutRoute path="/signup" component={SignUpPage}/>
