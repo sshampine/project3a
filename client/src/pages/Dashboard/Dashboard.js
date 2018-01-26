@@ -1,56 +1,20 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Jumbotron from "../../components/Jumbotron";
-import { Col, Row, Container } from "../../components/Grid";
-import Article from "../../components/Article/Article";
-import API from "../../utils/newsAPI";
-import cryptoAPI from "../../utils/binanceAPI";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Row, Container } from "../../components/Grid";
 import { Table } from "../../components/Table";
 import { ArticleTable } from "../../components/NewsArticle";
 
-
-class Dashboard extends Component {
-  state = {
-    articles: [],
-    coins: []
-  };
-
- // When this component mounts, search for the movie "The Matrix"
- componentDidMount() {
-  this.newsArticles();
-  this.cryptoPairs();
-}
-
-newsArticles = query => {
-  API.news()
-    .then(res => {
-     console.log(res.data.articles, "res did this work");
-     this.setState({ articles: res.data.articles })
-    })
-    .catch(err => console.log(err));
-};
-
-cryptoPairs = query => {
-  cryptoAPI.allPairs()
-    .then(res => {
-     console.log(res.data, "res did this work");
-     this.setState({ coins: res.data })
-    })
-    .catch(err => console.log(err));
-};
-
-  render() {
-    return (
-      <Container fluid >
+const Dashboard = props => (
+  <Container fluid >
         <Container>
           <Row>
             <br/>
             <br/>
             <br/>
             <hr/>
-              <Table
-                cryptoData= {this.state.coins}
-              />
+            <Table
+              cryptoData= {props.coins}
+            />
             <hr/>
             <br/>
             <br/>
@@ -64,17 +28,23 @@ cryptoPairs = query => {
             <br/>
             <hr />
             <h1 className="text-center">Latest Cryptocurrency News Articles</h1>
-            <ArticleTable 
-             articles= {this.state.articles}
-            />
             <hr />
+            
+              <ArticleTable 
+                articles= {props.articles}
+                favoriteArticles= {props.favoriteArticles}
+                newsTopics= {props.newsTopics}
+              />
+              
             <br/>
             <br/>
           </Row>
         </Container>
       </Container>
-    );
-  }
-}
+);
+
+Dashboard.propTypes = {
+  secretData: PropTypes.string.isRequired
+};
 
 export default Dashboard;

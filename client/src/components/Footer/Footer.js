@@ -1,6 +1,5 @@
 import React from "react";
 import "./Footer.css";
-import { Row, Container } from "../../components/Grid";
 
 const Footer = () =>
     <div className="footer">

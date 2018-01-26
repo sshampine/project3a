@@ -1,7 +1,6 @@
 import React from "react";
 import "./Table.css";
 import Article from "../Article/Article";
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import { Tabs, Tab } from 'react-bootstrap';
 
 export class ArticleTable extends React.Component {
