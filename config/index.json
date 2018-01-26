@@ -1,0 +1,4 @@
+{
+	"dbUri": "mongodb://localhost/p3a",
+	"jwtSecret": "Mother of god why"
+}

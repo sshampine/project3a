@@ -7,6 +7,7 @@ const Article = props => (
       <div className="divBox">
         <img
           className="img-responsive newsImages"
+          alt= {props.src}
           src={props.src}
         />
         <p>{props.timeStamp}</p>

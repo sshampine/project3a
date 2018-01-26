@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
-import Article from "../../components/Article/Article";
 import { Table } from "../../components/Table";
 import { ArticleTable } from "../../components/NewsArticle";
 import API from "../../utils/newsAPI";
