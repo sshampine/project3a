@@ -1,0 +1,63 @@
+p,
+li,
+a,
+th,
+body {
+    font-family: 'Dosis', sans-serif;
+    font-size: 16px;
+    letter-spacing: .8px;
+    color: #0E4D6C;
+}
+
+h3, h3 a {
+    font-size: 26px;
+}
+
+a {
+    color: #0E4D6C;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #0E4D6C;
+}
+
+.navbar-brand {
+    color: white !important;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+    color: #0E4D6C;
+    border: rgba(14, 77, 108, 0.411) solid 1px;
+    border-bottom-color: transparent;
+}
+
+.nav-tabs {
+    border-bottom:  rgba(14, 77, 108, 0.411)  solid 1px;
+}
+
+a:hover {
+    color: #55A2AA;
+}
+
+.container-fluid {
+    padding: 0px;
+
+}
+.navbar-default {
+    background-image: url("https://wallpaperscraft.com/image/background_light_dark_surface_47324_2560x1440.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    margin-bottom: 0px;
+    border: none;
+    border-bottom: 1px solid #c9e2efa6;
+    border-radius: 0px !important;
+    
+}
+
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:focus {
+    color: white;
+}
