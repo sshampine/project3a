@@ -6,7 +6,7 @@ const cors = require('cors')
 
 
 //connect to the database and load models
-require("./server/models").connect(config.dbUri);
+require("./server/models").connect(process.env.MONGODB_URI || config.dbUri);
 
 const app = express();
 app.use(cors());
@@ -38,7 +38,7 @@ app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
 
 //set port, hosting services
-app.set("port", (process.env.PORT || 3000));
+app.set("port", (process.env.PORT || 3001));
 
 //start server
 app.listen(app.get("port"), () => {
