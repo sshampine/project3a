@@ -13,7 +13,7 @@ require("./server/models").connect(process.env.MONGODB_URI || config.dbUri);
 const app = express();
 app.use(cors());
 //tell the app to look for static files in these directories
-app.use(express.static("./server/static"));
+//app.use(express.static("./server/static"));
 app.use(express.static("./client/build"));
 
 
