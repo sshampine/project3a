@@ -15,7 +15,6 @@ const LoggedInNav = () =>
         </a>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/signup"><span className="glyphicon glyphicon-user"></span>Sign Up</a></li>
         <li><a href="/logout"><span className="glyphicon glyphicon-log-out"></span>Log Out</a></li>
       </ul>
     </div>
