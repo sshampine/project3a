@@ -50,7 +50,7 @@ const SignUpForm = ({
                 Sign Up
               </FormBtn>
 
-            <div>Already haveasdfasdfount? <Link to={'/login'}>Log in</Link></div>
+            <div>Already have an account? <Link to={'/login'}>Log in</Link></div>
         </form>
       </Col>
     </Row>
