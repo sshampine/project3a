@@ -3,6 +3,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import LoginPage from "./pages/Login";
 import DashboardPage from "./pages/Dashboard";
+import Profile from "./pages/Profile";
 import Public from "./pages/Public";
 import SignUpPage from "./pages/SignUp";
 import Nav from "./components/Nav/Nav";
@@ -75,6 +76,7 @@ class App extends Component {
               )}
             <PropsRoute exact path="/" component={Public} />
             <PrivateRoute path="/dashboard" component={DashboardPage} />
+            <PrivateRoute path="/profile" component={Profile} />
             <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
             <LoggedOutRoute path="/signup" component={SignUpPage}/>
             <Route path="/logout" component={LogoutFunction}/>

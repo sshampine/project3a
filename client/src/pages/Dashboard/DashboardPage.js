@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Auth from '../../modules/Auth';
 import Dashboard from './Dashboard.js';
+import Profile from './Profile.js';
 import API from "../../utils/newsAPI";
 import cryptoAPI from "../../utils/binanceAPI";
 
@@ -19,7 +20,8 @@ class DashboardPage extends Component {
       articles: [],
       favoriteArticles: [],
       newsTopics: [],
-      coins: []
+      coins: [],
+      profile: false
     };
   }
 
@@ -27,9 +29,9 @@ class DashboardPage extends Component {
    * This method will be executed after initial rendering.
    */
   componentDidMount() {
-    // this.newsArticles();
-    // this.favoriteNewsArticles();
-    // this.newsTopics();
+    this.newsArticles();
+    this.favoriteNewsArticles();
+    this.newsTopics();
     
     const xhr = new XMLHttpRequest();
     xhr.open('get', 'http://localhost:3000/api/dashboard');
@@ -38,6 +40,7 @@ class DashboardPage extends Component {
     xhr.setRequestHeader('Authorization', `Bearer ${Auth.getToken()}`);
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
+      console.log(xhr.response);
       if (xhr.status === 200) {
         this.setState({
           secretData: xhr.response.message,
@@ -101,7 +104,8 @@ class DashboardPage extends Component {
    */
   render() {
     return (
-      <Dashboard 
+     
+        <Dashboard 
         secretData={this.state.secretData} 
         user={this.state.user} 
         coins={this.state.coins} 
@@ -109,6 +113,7 @@ class DashboardPage extends Component {
         favoriteArticles={this.state.favoriteArticles} 
         newsTopics={this.state.newsTopics} 
       />
+     
     );
   }
 

@@ -3,4 +3,5 @@
 module.exports = {
   Pair: require("./Pair"),
   User: require("./User"),
+  Outlets: require("./outlets"),
 };
