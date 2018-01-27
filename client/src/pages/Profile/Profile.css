@@ -2,3 +2,14 @@
     margin-top: 20px;
     padding-top: 10px;
 }
+.glyphicon-remove-sign {
+    color: rgba(255, 0, 0, 0.438);
+}
+
+.glyphicon-remove-sign:hover {
+    color: rgba(255, 0, 0, 0.685);
+}
+
+.userProfile {
+    background: rgb(247, 245, 245);
+}

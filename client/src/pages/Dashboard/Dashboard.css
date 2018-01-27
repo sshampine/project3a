@@ -1,0 +1,22 @@
+.heroDash {
+    background-image: url("https://wallpaperscraft.com/image/background_light_dark_surface_47324_2560x1440.jpg");
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover; 
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 0px !important;
+}
+
+.heroDash h1 {
+    color: white;
+    margin-top: 0px;
+    font-size: 70px;
+}
+
+.heroDash p {
+    color: white;
+    font-size: 25px;
+    padding-top: 10px;
+}
+
