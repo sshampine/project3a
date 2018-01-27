@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LoggedInNav = () => 
 
@@ -15,7 +16,7 @@ const LoggedInNav = () =>
         </a>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/logout"><span className="glyphicon glyphicon-log-out"></span>Log Out</a></li>
+        <li><Link to="/logout"><span className="glyphicon glyphicon-log-out"></span>Log Out</Link></li>
       </ul>
     </div>
   </nav>
