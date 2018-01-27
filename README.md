@@ -53,3 +53,7 @@ urBIT is a cryptocurrency tracker. With the explosion of cryptocurrencies, keepi
 [Scott Shampine](https://github.com/sshampine) - React, JavaScript, Node.js, Express, Passport, MongoDB
 
 ## Acknowledgements
+
+Scott Shampine
+Greg Ladden
+Robert Jaynes
