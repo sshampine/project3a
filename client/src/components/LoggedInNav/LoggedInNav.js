@@ -1,6 +1,6 @@
 import React from "react";
 
-const LoggedInNav = () => 
+const LoggedInNav = props => 
 
 <nav className="navbar navbar-top navbar-default">
     <div className="container">
@@ -15,6 +15,14 @@ const LoggedInNav = () =>
         </a>
       </div>
       <ul class="nav navbar-nav navbar-right">
+      
+      {/* {props.dashboard ? (
+            <li><a href="/dashboard"><span className="glyphicon glyphicon-log-out"></span>Dashboard</a></li>
+          ) : (
+            <li><a href="/profile"><span className="glyphicon glyphicon-log-out"></span>Profile</a></li>
+        )} */}
+        <li><a href="/dashboard"><span className="glyphicon glyphicon-log-out"></span>Dashboard</a></li>
+        <li><a href="/profile"><span className="glyphicon glyphicon-log-out"></span>Profile</a></li>
         <li><a href="/logout"><span className="glyphicon glyphicon-log-out"></span>Log Out</a></li>
       </ul>
     </div>
