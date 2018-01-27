@@ -10,6 +10,11 @@ urBIT is a cryptocurrency tracker. With the explosion of cryptocurrencies, keepi
 
 ![urbit_home](https://user-images.githubusercontent.com/22949508/35466341-a1f0d1fa-02c8-11e8-86f2-26fd69e80886.png)
 
+---
+
+#### urBIT Latest News Section
+
+![ubit-news](https://user-images.githubusercontent.com/22949508/35466420-4b279c7c-02c9-11e8-8bc5-305b5f6ab631.png)
 
 
 # Technologies Used
