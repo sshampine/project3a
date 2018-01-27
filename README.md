@@ -55,5 +55,7 @@ urBIT is a cryptocurrency tracker. With the explosion of cryptocurrencies, keepi
 ## Acknowledgements
 
 Scott Shampine
+
 Greg Ladden
+
 Robert Jaynes
