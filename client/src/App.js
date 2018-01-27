@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch, Redirect, withRouter } fr
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Public from "./pages/Public";
+import Profile from "./pages/Profile";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import PrivateRoute from "./components/PrivateRoute"
@@ -13,8 +14,9 @@ const App = () =>
       <Nav />
       <Switch>
         <Route path="/public" component={Public} />
+        <Route path="/profile" component={Profile} />
         <Route path="/login" component={Login} />
-        <PrivateRoute path="/dashboard" component={Dashboard} />
+        <Route path="/dashboard" component={Dashboard} />
       </Switch>
       <Footer />
     </div>

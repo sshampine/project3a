@@ -35,7 +35,7 @@ newsArticles = query => {
 };
 
 favoriteNewsArticles = query => {
-  API.favoriteNews()
+  API.getFavOutlets()
     .then(res => {
      console.log(res.data.articles, "favoriteNewsArticles did this work");
      this.setState({ favoriteArticles: res.data.articles })
@@ -73,51 +73,40 @@ cryptoPairs = query => {
           </div>
         </Jumbotron>
         <Container>
-          <Row>
-            <Col size="md-2">
-              <p className="text-right"><i class="fas fa-chart-line"></i></p>
-            </Col>
-            <Col size="md-6">
-              <h2>Track Real Time Rates</h2>
-              <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </Col>
-            <Col size="md-4"></Col>
-          </Row>
-          <Row>
-            <Col size="md-2">
-              <p className="text-right"><i class="far fa-newspaper"></i></p>
-            </Col>
-            <Col size="md-6">
-              <h2>Follow the Latest News</h2>
-              <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </Col>
-            <Col size="md-4"></Col>
-          </Row>
-          <Row>
-            <Col size="md-2">
-              <p className="text-right"><i class="fas fa-universal-access"></i></p>
-            </Col>
-            <Col size="md-6">
-              <h2>Customize Your News Feed</h2>
-              <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </Col>
-            <Col size="md-4"></Col>
-          </Row>
+          <Col size="md-6">
+            <Row>
+              <Col size="md-12">
+              <p className="pull-left" data-aos="fade-up"><i class="fas fa-chart-line"></i></p>
+                <h2 data-aos="fade-up">Track Real Time Rates</h2>
+              </Col>
+            </Row>
+            <Row>
+              <Col size="md-12">
+              <p className="pull-left" data-aos="fade-up"><i class="far fa-newspaper"></i></p>
+                <h2 data-aos="fade-up">Follow the Latest News</h2>
+              </Col>
+            </Row>
+            <Row>
+              <Col size="md-12">
+              <p className="pull-left" data-aos="fade-up"><i class="fas fa-universal-access"></i></p>
+                <h2 data-aos="fade-up">Customize Your News Feed</h2>
+              </Col>
+            </Row>
+          </Col>
+          <Col size="md-6">
+            <img class="statImage" data-aos="fade-left" src="https://lh4.ggpht.com/J33escE3txE7SO9AxSpGgx6JSvxaMiIHURP4qmdtemnPtTeYPWygNXteKh7soIU1joY=h900" />
+          </Col>
         </Container>
-        <Container>
-          <Row>
-            <br/>
-            <br/>
-            <br/>
-            <hr/>
-              <Table
-                cryptoData= {this.state.coins}
-              />
-            <hr/>
-            <br/>
-            <br/>
-            <br/>
-          </Row>
+        <Container fluid>
+        <div className="cryptoSection">
+          <Container>
+            <Row>
+                <Table
+                  cryptoData= {this.state.coins}
+                />
+            </Row>
+          </Container>
+          </div>
         </Container>
         <Container>
           <Row>
@@ -129,7 +118,7 @@ cryptoPairs = query => {
             <hr />
             <ArticleTable 
              articles= {this.state.articles}
-             favoriteArticles= {this.state.favoriteArticles}
+             favoriteArticles = {this.state.favoriteArticles}
              newsTopics= {this.state.newsTopics}
             />
             <br/>

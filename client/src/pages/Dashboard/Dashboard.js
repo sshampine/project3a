@@ -7,17 +7,22 @@ import API from "../../utils/newsAPI";
 import cryptoAPI from "../../utils/binanceAPI";
 import { Table } from "../../components/Table";
 import { ArticleTable } from "../../components/NewsArticle";
+import "./Dashboard.css";
 
 
 class Dashboard extends Component {
   state = {
     articles: [],
+    favoriteArticles: [],
+    newsTopics: [],
     coins: []
   };
 
- // When this component mounts, search for the movie "The Matrix"
+
  componentDidMount() {
   this.newsArticles();
+  this.favoriteNewsArticles();
+  this.newsTopics();
   this.cryptoPairs();
 }
 
@@ -30,18 +35,36 @@ newsArticles = query => {
     .catch(err => console.log(err));
 };
 
+favoriteNewsArticles = query => {
+  API.getFavOutlets()
+    .then(res => {
+     console.log(res.data.articles, "favoriteNewsArticles did this work");
+     this.setState({ favoriteArticles: res.data.articles })
+    })
+    .catch(err => console.log(err));
+};
+
+newsTopics = query => {
+  API.newsTopics()
+    .then(res => {
+     console.log(res.data.articles, "newsTopics did this work");
+     this.setState({ newsTopics: res.data.articles })
+    })
+    .catch(err => console.log(err));
+};
+
 cryptoPairs = query => {
   cryptoAPI.allPairs()
     .then(res => {
-     console.log(res.data, "res did this work");
+     console.log(res.data, "cryptoData did this work");
      this.setState({ coins: res.data })
     })
     .catch(err => console.log(err));
 };
 
   render() {
-    return (
-      <Container fluid >
+    return(
+      <Container>
         <Container>
           <Row>
             <br/>
@@ -64,10 +87,12 @@ cryptoPairs = query => {
             <br/>
             <hr />
             <h1 className="text-center">Latest Cryptocurrency News Articles</h1>
+            <hr />
             <ArticleTable 
              articles= {this.state.articles}
+             favoriteArticles= {this.state.favoriteArticles}
+             newsTopics= {this.state.newsTopics}
             />
-            <hr />
             <br/>
             <br/>
           </Row>

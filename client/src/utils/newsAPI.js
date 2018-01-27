@@ -18,5 +18,26 @@ export default {
   },
   newsTopics: function() {
     return axios.get(newsTopics);
+  },
+
+  getNewsOutlet: function() {
+    return axios.get("/api/newsoutlet");
+  },
+
+  // Gets the book with the given id
+  getOutlet: function(id) {
+    return axios.get("/api/newsoutlet" + id);
+  },
+
+  // Saves a book to the database
+  saveOutlet: function(outletData) {
+    console.log("we are about to save", outletData);
+    return axios.post("/api/outlets/saveoutlets", outletData);
+  },
+
+  // Saves a book to the database
+  getFavOutlets: function(outletData) {
+    console.log("we are about to save", outletData);
+    return axios.post("/api/outlets/saveoutlets", outletData);
   }
 };

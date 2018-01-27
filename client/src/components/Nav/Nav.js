@@ -2,7 +2,7 @@ import React from "react";
 
 const Nav = () => 
 
-<nav className="navbar navbar-top navbar-default">
+<nav className="navbar navbar-fixed-left navbar-default">
     <div className="container">
       <div className="navbar-header">
         <button type="button" className="collapsed navbar-toggle">

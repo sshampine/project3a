@@ -38,6 +38,9 @@ mongoose.connect(
   }
 );
 
+app.get("/saveoutlets", function(req, res) {
+  console.log("here is req.body", req.body);
+})
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
