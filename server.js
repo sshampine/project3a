@@ -43,7 +43,7 @@ router.use(function(req, res) {
 })
 
 //set port, hosting services
-app.set("port", (process.env.PORT || 3000));
+app.set("port", (process.env.PORT || 3001));
 
 //start server
 app.listen(app.get("port"), () => {
