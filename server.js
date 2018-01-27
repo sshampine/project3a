@@ -12,10 +12,10 @@ require("./server/models").connect(process.env.MONGODB_URI || config.dbUri);
 const app = express();
 app.use(cors());
 
-app.use(express.static("./client/build"));
+//app.use(express.static("./client/build"));
 
 // Serve up static assets
-//app.use(express.static("client/build"));
+app.use(express.static("client/build"));
 
 
 //tell the app to parse HTTP body messages
