@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Auth from '../../modules/Auth';
 import Dashboard from './Dashboard.js';
+import './Dashboard.css';
 import Profile from './Profile.js';
 import API from "../../utils/newsAPI";
 import cryptoAPI from "../../utils/binanceAPI";
+import Jumbotron from "../../components/Jumbotron";
+import { Row, Container, Col } from "../../components/Grid";
 
 
 class DashboardPage extends Component {
@@ -104,15 +107,20 @@ class DashboardPage extends Component {
    */
   render() {
     return (
-     
+      <Container fluid>
+        <div className="heroDash"> 
+          <h1 className="text-center" data-aos="fade-down" > Welcome {this.state.user.name}</h1>
+          <p className="text-center" data-aos="fade-up"> How much money have you made today?</p>
+        </div>
         <Dashboard 
-        secretData={this.state.secretData} 
-        user={this.state.user} 
-        coins={this.state.coins} 
-        articles={this.state.articles} 
-        favoriteArticles={this.state.favoriteArticles} 
-        newsTopics={this.state.newsTopics} 
-      />
+          secretData={this.state.secretData} 
+          user={this.state.user} 
+          coins={this.state.coins} 
+          articles={this.state.articles} 
+          favoriteArticles={this.state.favoriteArticles} 
+          newsTopics={this.state.newsTopics} 
+        />
+      </Container>
      
     );
   }

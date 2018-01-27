@@ -21,8 +21,8 @@ const LoggedInNav = props =>
           ) : (
             <li><a href="/profile"><span className="glyphicon glyphicon-log-out"></span>Profile</a></li>
         )} */}
-        <li><a href="/dashboard"><span className="glyphicon glyphicon-log-out"></span>Dashboard</a></li>
-        <li><a href="/profile"><span className="glyphicon glyphicon-log-out"></span>Profile</a></li>
+        <li><a href="/dashboard"><span className="glyphicon glyphicon-home"></span>Dashboard</a></li>
+        <li><a href="/profile"><span className="glyphicon glyphicon-user"></span>Profile</a></li>
         <li><a href="/logout"><span className="glyphicon glyphicon-log-out"></span>Log Out</a></li>
       </ul>
     </div>

@@ -72,7 +72,7 @@ cryptoPairs = query => {
         </Jumbotron>
         <Container>
           <Row>
-            <Col size="md-2">
+            <Col size="md-2 sm-2 xs-2">
               <p className="text-right"><i class="fas fa-chart-line"></i></p>
             </Col>
             <Col size="md-6">
@@ -82,7 +82,7 @@ cryptoPairs = query => {
             <Col size="md-4"></Col>
           </Row>
           <Row>
-            <Col size="md-2">
+            <Col size="md-2 sm-2 xs-2">
               <p className="text-right"><i class="far fa-newspaper"></i></p>
             </Col>
             <Col size="md-6">
@@ -92,7 +92,7 @@ cryptoPairs = query => {
             <Col size="md-4"></Col>
           </Row>
           <Row>
-            <Col size="md-2">
+            <Col size="md-2 sm-2 xs-2">
               <p className="text-right"><i class="fas fa-universal-access"></i></p>
             </Col>
             <Col size="md-6">
