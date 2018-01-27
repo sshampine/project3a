@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LoggedInNav = props => 
 
@@ -21,9 +22,9 @@ const LoggedInNav = props =>
           ) : (
             <li><a href="/profile"><span className="glyphicon glyphicon-log-out"></span>Profile</a></li>
         )} */}
-        <li><a href="/dashboard"><span className="glyphicon glyphicon-home"></span>Dashboard</a></li>
-        <li><a href="/profile"><span className="glyphicon glyphicon-user"></span>Profile</a></li>
-        <li><a href="/logout"><span className="glyphicon glyphicon-log-out"></span>Log Out</a></li>
+        <li><Link to="/dashboard"><span className="glyphicon glyphicon-home"></span>Dashboard</Link></li>
+        <li><Link to="/profile"><span className="glyphicon glyphicon-user"></span>Profile</Link></li>
+        <li><Link to="/logout"><span className="glyphicon glyphicon-log-out"></span>Log Out</Link></li>
       </ul>
     </div>
   </nav>

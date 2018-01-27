@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Nav = () => 
 
@@ -15,8 +16,8 @@ const Nav = () =>
         </a>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/signup"><span className="glyphicon glyphicon-user"></span>Sign Up</a></li>
-        <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span>Login</a></li>
+        <li><Link to="/signup"><span className="glyphicon glyphicon-user"></span>Sign Up</Link></li>
+        <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span>Login</Link></li>
       </ul>
     </div>
   </nav>

@@ -4,7 +4,7 @@ export default {
   allPairs: function() {
     return axios({
     	method: 'get',
-    	url: 'http://localhost:3000/api/pairs',
+    	url: 'https://3pa.heroku.com:443/api/pairs',
     	auth: {
 		  username: '',
 		  password: ''
