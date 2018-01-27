@@ -37,7 +37,7 @@ class DashboardPage extends Component {
     this.newsTopics();
     
     const xhr = new XMLHttpRequest();
-    xhr.open('get', 'https://3pa.heroku.com:443/api/dashboard');
+    xhr.open('get', 'https://p3a.heroku.com:443/api/dashboard');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     // set the authorization HTTP header
     xhr.setRequestHeader('Authorization', `Bearer ${Auth.getToken()}`);
@@ -86,7 +86,7 @@ class DashboardPage extends Component {
   cryptoPairs = () => {
 
     const xhr = new XMLHttpRequest();
-    xhr.open('get', 'https://3pa.heroku.com:443/api/pairs');
+    xhr.open('get', 'https://p3a.heroku.com:443/api/pairs');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     // set the authorization HTTP header
     xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);

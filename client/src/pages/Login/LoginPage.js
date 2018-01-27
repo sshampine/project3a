@@ -50,7 +50,7 @@ class LoginPage extends React.Component {
 
     // create an AJAX request
     const xhr = new XMLHttpRequest();
-    xhr.open('post', 'https://3pa.heroku.com:443/auth/login');
+    xhr.open('post', 'https://p3a.heroku.com:443/auth/login');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
